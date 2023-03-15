@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.xaut.scenery.mapper.AdminMapper">
+
+    <select id="getAllAdmin" resultType="Admin">
+        select * from admin
+    </select>
+
+    <insert id="insertAAdmin">
+        insert into admin values (null, #{adminName}, #{adminPassword}, #{adminNum})
+    </insert>
+
+    <select id="getAdminByAdminNameAndPassword" resultType="Admin">
+        select * from admin where admin_name=#{adminName} and admin_password=#{adminPassword}
+    </select>
+
+    <delete id="deleteAAdminById">
+        delete from admin where admin_id=#{adminId}
+    </delete>
+
+    <update id="updateAAdminById">
+        update admin set admin_name=#{adminName}, admin_password=#{adminPassword}, admin_num=#{adminNum} where admin_id=#{adminId}
+    </update>
+
+    <select id="getAAdminById" resultType="Admin">
+        select * from admin where admin_id = #{adminId}
+    </select>
+
+    <select id="getAAdminByName" resultType="Admin">
+        select * from admin where admin_name = #{adminName}
+    </select>
+
+    <select id="getAdminByLike" resultType="Admin">
+        select * from admin where admin_name like concat('%',#{mohu},'%')
+    </select>
+
+
+
+
+
+
+</mapper>
