@@ -44,9 +44,9 @@
         </foreach>
     </insert>
 
-    <delete id="deleteMoreUser">
+    <delete id="deleteMoreByArray">
         delete from user where
-        <foreach collection="user_ids" item="user_id" separator="or">
+        <foreach collection="userIds" item="userId" separator="or">
             user_id = #{userId}
         </foreach>
     </delete>

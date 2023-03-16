@@ -46,6 +46,6 @@ public interface AdminService {
     //批量添加用户
     int insertMoreUser(List<User> users);
     //批量删除用户
-    int deleteMoreByArray(int[] userIds);
+    int deleteMoreByArray(List<Integer> userIds);
 
 }

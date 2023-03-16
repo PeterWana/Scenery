@@ -148,7 +148,7 @@ public class AdminServiceImpl implements AdminService{
     }
 
     @Override
-    public int deleteMoreByArray(int[] userIds) {
+    public int deleteMoreByArray(List<Integer> userIds) {
         return userMapper.deleteMoreByArray(userIds);
     }
 

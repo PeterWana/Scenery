@@ -279,17 +279,30 @@ public class AdminController {
     @ResponseBody
     public ReturnObject insertMoreUser(@RequestBody List<User> users){
         ReturnObject returnObject = new ReturnObject();
-//        try {
+        try {
             adminService.insertMoreUser(users);
             returnObject.setCode(Constants.RETURN_OBJECT_CODE_SUCCESS);
-//            returnObject.setMessage("成功添加" + users.size() + "个用户");
-//        }catch (Exception e){
-//            returnObject.setCode(Constants.RETURN_OBJECT_CODE_FAIL);
-//            returnObject.setMessage("批量添加失败");
-//        }
+            returnObject.setMessage("成功添加" + users.size() + "个用户");
+        }catch (Exception e){
+            returnObject.setCode(Constants.RETURN_OBJECT_CODE_FAIL);
+            returnObject.setMessage("批量添加失败");
+        }
         return returnObject;
     }
     //批量删除用户
-
+    @GetMapping("/delete-more")
+    @ResponseBody
+    public ReturnObject deleteMoreByArray(@RequestBody List<Integer> userIds){
+        ReturnObject returnObject = new ReturnObject();
+        try {
+            adminService.deleteMoreByArray(userIds);
+            returnObject.setCode(Constants.RETURN_OBJECT_CODE_SUCCESS);
+            returnObject.setMessage("成功删除" + userIds.size() + "个用户");
+        }catch (Exception e){
+            returnObject.setCode(Constants.RETURN_OBJECT_CODE_FAIL);
+            returnObject.setMessage("批量删除失败");
+        }
+        return returnObject;
+    }
 
 }

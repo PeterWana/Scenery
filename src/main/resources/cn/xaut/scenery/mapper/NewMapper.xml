@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.xaut.scenery.mapper.NewMapper">
+
+    <select id="getAllNew" resultType="News">
+        select * from new
+    </select>
+
+    <insert id="insertANew">
+        insert into new values (null, #{newText}, 0, now())
+    </insert>
+
+    <delete id="deleteANew">
+        delete from new where new_id=#{newId}
+    </delete>
+
+    <update id="updateLikeById">
+        update new set new_likes=new_likes + 1 where new_id=#{newId}
+    </update>
+
+    <select id="getLikeById" resultType="Integer">
+        select new_likes from new where new_id=#{newId}
+    </select>
+
+</mapper>

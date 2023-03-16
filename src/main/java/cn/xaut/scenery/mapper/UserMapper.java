@@ -39,10 +39,10 @@ public interface UserMapper {
     List<User> getUserByLike(@Param("mohu") String mohu);
 
     //批量添加用户
-    int insertMoreUser(List<User> users);
+    int insertMoreUser(@Param("users") List<User> users);
 
     //批量删除用户
-    int deleteMoreByArray(int[] user_ids);
+    int deleteMoreByArray(@Param("userIds") List<Integer> userIds);
 
 
 

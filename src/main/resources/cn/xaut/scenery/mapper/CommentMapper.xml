@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.xaut.scenery.mapper.CommentMapper">
+
+    <insert id="insertAComment">
+        insert into comment values (null, #{comText}, 0, now(), #{sceneId}, #{userId})
+    </insert>
+
+    <delete id="deleteACommentById">
+        delete from comment where com_id=#{comId}
+    </delete>
+
+    <update id="updateACommentById">
+        update comment set com_text=#{comText}, com_date=now() where com_id=#{comId}
+    </update>
+
+    <update id="updateLikeById">
+        update comment set com_likes=com_likes + 1 where com_id=#{comId}
+    </update>
+
+    <select id="getLikeById" resultType="Integer">
+        select com_likes from comment where com_id=#{comId}
+    </select>
+
+    <select id="getCommentById" resultType="String">
+        select com_text from comment where com_id=#{comId}
+    </select>
+
+    <select id="getCommentBySceneId" resultType="String">
+        select com_text from comment where scene_id=#{sceneId}
+    </select>
+
+    <select id="getCommentByUserId" resultType="String">
+        select com_text from comment where user_id=#{userId}
+    </select>
+
+</mapper>
