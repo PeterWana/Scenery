@@ -6,35 +6,56 @@
 <mapper namespace="cn.xaut.scenery.mapper.CommentMapper">
 
     <insert id="insertAComment">
-        insert into comment values (null, #{comText}, 0, now(), #{sceneId}, #{userId})
+        insert into comments values (null, #{comText}, 0, now(), #{comSceneId}, #{comUserId})
     </insert>
 
     <delete id="deleteACommentById">
-        delete from comment where com_id=#{comId}
+        delete from comments where com_id=#{comId}
     </delete>
 
     <update id="updateACommentById">
-        update comment set com_text=#{comText}, com_date=now() where com_id=#{comId}
+        update comments set com_text=#{comText}, com_date=now() where com_id=#{comId}
     </update>
 
     <update id="updateLikeById">
-        update comment set com_likes=com_likes + 1 where com_id=#{comId}
+        update comments set com_likes=com_likes + 1 where com_id=#{comId}
     </update>
 
     <select id="getLikeById" resultType="Integer">
-        select com_likes from comment where com_id=#{comId}
+        select com_likes from comments where com_id=#{comId}
+    </select>
+    <!--ofType：设置collection标签所处理的集合属性中存储数据的类型-->
+    <resultMap id="getCommentMap" type="Comment">
+        <id property="comId" column="com_id"></id>
+        <result property="comText" column="com_text"></result>
+        <result property="comLikes" column="com_likes"></result>
+        <result property="comDate" column="com_date"></result>
+        <result property="comSceneId" column="com_scene_id"></result>
+        <result property="comUserId" column="com_user_id"></result>
+        <collection property="reply" ofType="Reply">
+            <id property="replyId" column="reply_id"></id>
+            <result property="replyText" column="reply_text"></result>
+            <result property="replyLikes" column="reply_likes"></result>
+            <result property="replyDate" column="reply_date"></result>
+            <result property="replyComId" column="reply_com_id"></result>
+            <result property="replyUserId" column="reply_user_id"></result>
+        </collection>
+    </resultMap>
+
+    <select id="getCommentById" resultMap="getCommentMap">
+        select c.*, r.* from comments c left join reply r on c.com_id=r.reply_com_id where c.com_id=#{comId}
     </select>
 
-    <select id="getCommentById" resultType="String">
-        select com_text from comment where com_id=#{comId}
+    <select id="getCommentBySceneId" resultMap="getCommentMap">
+        select c.*, r.* from comments c left join reply r on c.com_id=r.reply_com_id where c.com_scene_id=#{sceneId}
     </select>
 
-    <select id="getCommentBySceneId" resultType="String">
-        select com_text from comment where scene_id=#{sceneId}
+    <select id="getCommentByUserId" resultMap="getCommentMap">
+        select c.*, r.* from comments c left join reply r on c.com_id=r.reply_com_id where c.com_user_id=#{userId}
     </select>
 
-    <select id="getCommentByUserId" resultType="String">
-        select com_text from comment where user_id=#{userId}
+    <select id="getAllComment" resultMap="getCommentMap">
+        select c.*, r.* from comments c left join reply r on c.com_id=r.reply_com_id
     </select>
 
 </mapper>

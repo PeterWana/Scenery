@@ -3,8 +3,10 @@ package cn.xaut.scenery.controller;
 import cn.xaut.scenery.common.Constants;
 import cn.xaut.scenery.common.ReturnObject;
 import cn.xaut.scenery.pojo.Admin;
+import cn.xaut.scenery.pojo.Comment;
 import cn.xaut.scenery.pojo.User;
 import cn.xaut.scenery.service.AdminService;
+import cn.xaut.scenery.service.CommentService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,9 @@ import java.util.Objects;
 public class AdminController {
     @Autowired
     private AdminService adminService;
+
+    @Autowired
+    private CommentService commentService;
 
     //注册
     @PostMapping("/register")
@@ -304,5 +309,11 @@ public class AdminController {
         }
         return returnObject;
     }
-
+    //管理员查询所有评论信息
+    @GetMapping("/comment/page/{pageNum}")
+    @ResponseBody
+    public PageInfo<Comment> getAllComent(@PathVariable("pageNum") Integer pageNum){
+        PageInfo<Comment> page = commentService.getAllComment(pageNum);
+        return page;
+    }
 }

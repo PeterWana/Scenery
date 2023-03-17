@@ -2,10 +2,10 @@
 用户id 用户名 密码 ​性别 年龄 手机号 图片地址
 
 游览信息 tour
-游览信息id 入景区时间 出景区时间 用户id
+游览信息id 入景区时间 用户id
 
 游览景点信息 sight
-游览景点信息id apone aptwo apthree apfour 景点id 入景点时间 出景点时间 游览信息id
+游览景点信息id apone aptwo apthree apfour 景点id 入景点时间 游览信息id
 
 景点 scene
 景点id 景点名称​ 景点类型  ap1坐标 图片地址
@@ -13,7 +13,7 @@
 管理员 admin
 管理员id 用户名 密码 手机号 
 
-评论 comment
+评论 comments
 评论id 景点id 评论内容 点赞数  日期 用户id
 
 回复 reply

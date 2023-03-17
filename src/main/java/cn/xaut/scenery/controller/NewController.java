@@ -17,7 +17,7 @@ import java.util.HashMap;
  * @Description:
  */
 
-@Controller
+@RestController
 @RequestMapping("/admin/new")
 public class NewController {
 
@@ -29,6 +29,11 @@ public class NewController {
     public PageInfo<News> getAllNew(@PathVariable("pageNum") Integer pageNum){
         PageInfo<News> page = newService.getAllNew(pageNum);
         return page;
+    }
+    //查询某一新闻ById
+    @GetMapping(value = "/{NewId}")
+    public News getNewById(@PathVariable("NewId") Integer newId){
+        return newService.getNewById(newId);
     }
     //删除一条新闻
     @GetMapping("/delete/{NewId}")
@@ -46,7 +51,6 @@ public class NewController {
     }
     //添加一条新闻,点赞数字默认为0,自动获取系统时间,只需将newText作为JSON输入
     @PostMapping("/insert")
-    @ResponseBody
     public ReturnObject insertANew(@RequestBody News news){
         ReturnObject returnObject = new ReturnObject();
         try {

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.xaut.scenery.mapper.ReplyMapper">
+
+    <insert id="insertAReply">
+        insert into reply values (null, #{replyText}, 0, now(), #{replyComId}, #{replyUserId})
+    </insert>
+
+    <delete id="deleteAReplyById">
+        delete from reply where reply_id=#{replyId}
+    </delete>
+
+    <update id="updateAReplyById">
+        update reply set reply_text=#{replyText}, reply_date=now() where reply_id=#{replyId}
+    </update>
+
+    <update id="updateLikeById">
+        update reply set reply_likes=reply_likes + 1 where reply_id=#{replyId}
+    </update>
+
+    <select id="getLikeById" resultType="Integer">
+        select reply_likes from reply where reply_id=#{replyId}
+    </select>
+
+    <select id="getReplyById" resultType="Reply">
+        select * from reply where reply_id=#{replyId}
+    </select>
+
+</mapper>

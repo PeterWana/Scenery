@@ -20,6 +20,9 @@ public interface NewService {
     //查询所有新闻
     PageInfo<News> getAllNew(Integer pageNum);
 
+    //查询新闻ById
+    News getNewById(Integer newId);
+
     //添加一个新闻
     int insertANew(News news);
 

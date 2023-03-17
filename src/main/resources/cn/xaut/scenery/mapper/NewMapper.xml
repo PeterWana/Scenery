@@ -9,6 +9,10 @@
         select * from new
     </select>
 
+     <select id="getNewById" resultType="News">
+         select * from new where new_id=#{newId}
+     </select>
+
     <insert id="insertANew">
         insert into new values (null, #{newText}, 0, now())
     </insert>

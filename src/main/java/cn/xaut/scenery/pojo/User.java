@@ -21,18 +21,21 @@ public class User {
 
     private String userNum;
 
+    private String userImg;
+
     private List<?> tours;
 
     public User() {
     }
 
-    public User(Integer userId, String userName, String userPassword, Integer userSex, Integer userAge, String userNum) {
+    public User(Integer userId, String userName, String userPassword, Integer userSex, Integer userAge, String userNum, String userImg) {
         this.userId = userId;
         this.userName = userName;
         this.userPassword = userPassword;
         this.userSex = userSex;
         this.userAge = userAge;
         this.userNum = userNum;
+        this.userImg = userImg;
     }
 
     public Integer getUserId() {
@@ -83,6 +86,14 @@ public class User {
         this.userNum = userNum;
     }
 
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -92,6 +103,8 @@ public class User {
                 ", userSex=" + userSex +
                 ", userAge=" + userAge +
                 ", userNum='" + userNum + '\'' +
+                ", userImg='" + userImg + '\'' +
+                ", tours=" + tours +
                 '}';
     }
 }

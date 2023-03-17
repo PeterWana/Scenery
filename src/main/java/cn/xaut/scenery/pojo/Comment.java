@@ -3,6 +3,7 @@ package cn.xaut.scenery.pojo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author wyx
@@ -17,71 +18,82 @@ public class Comment {
 
     private Integer comLikes;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date comDate;
 
-    private Integer sceneId;
+    private Integer comSceneId;
 
-    private Integer userId;
+    private Integer comUserId;
+
+    private List<Reply> reply;
 
     public Comment() {
     }
 
-    public Comment(Integer comId, String comText, Integer comLikes, Date comDate, Integer sceneId, Integer userId) {
+    public Comment(Integer comId, String comText, Integer comLikes, Date comDate, Integer comSceneId, Integer comUserId, List<Reply> reply) {
         this.comId = comId;
         this.comText = comText;
         this.comLikes = comLikes;
         this.comDate = comDate;
-        this.sceneId = sceneId;
-        this.userId = userId;
+        this.comSceneId = comSceneId;
+        this.comUserId = comUserId;
+        this.reply = reply;
     }
 
     public Integer getComId() {
         return comId;
     }
 
-    public String getComText() {
-        return comText;
-    }
-
-    public Integer getComLikes() {
-        return comLikes;
-    }
-
-    public Date getComDate() {
-        return comDate;
-    }
-
-    public Integer getSceneId() {
-        return sceneId;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
     public void setComId(Integer comId) {
         this.comId = comId;
+    }
+
+    public String getComText() {
+        return comText;
     }
 
     public void setComText(String comText) {
         this.comText = comText;
     }
 
+    public Integer getComLikes() {
+        return comLikes;
+    }
+
     public void setComLikes(Integer comLikes) {
         this.comLikes = comLikes;
+    }
+
+    public Date getComDate() {
+        return comDate;
     }
 
     public void setComDate(Date comDate) {
         this.comDate = comDate;
     }
 
-    public void setSceneId(Integer sceneId) {
-        this.sceneId = sceneId;
+    public Integer getComSceneId() {
+        return comSceneId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setComSceneId(Integer comSceneId) {
+        this.comSceneId = comSceneId;
+    }
+
+    public Integer getComUserId() {
+        return comUserId;
+    }
+
+    public void setComUserId(Integer comUserId) {
+        this.comUserId = comUserId;
+    }
+
+    public List<Reply> getReply() {
+        return reply;
+    }
+
+    public void setReply(List<Reply> reply) {
+        this.reply = reply;
     }
 
     @Override
@@ -91,8 +103,9 @@ public class Comment {
                 ", comText='" + comText + '\'' +
                 ", comLikes=" + comLikes +
                 ", comDate=" + comDate +
-                ", sceneId=" + sceneId +
-                ", userId=" + userId +
+                ", comSceneId=" + comSceneId +
+                ", comUserId=" + comUserId +
+                ", reply=" + reply +
                 '}';
     }
 }

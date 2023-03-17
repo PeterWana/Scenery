@@ -33,6 +33,11 @@ public class NewServiceImpl implements NewService {
     }
 
     @Override
+    public News getNewById(Integer newId) {
+        return newMapper.getNewById(newId);
+    }
+
+    @Override
     public int insertANew(News news) {
         return newMapper.insertANew(news);
     }
