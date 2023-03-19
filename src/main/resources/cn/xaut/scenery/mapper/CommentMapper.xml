@@ -24,6 +24,7 @@
     <select id="getLikeById" resultType="Integer">
         select com_likes from comments where com_id=#{comId}
     </select>
+
     <!--ofType：设置collection标签所处理的集合属性中存储数据的类型-->
     <resultMap id="getCommentMap" type="Comment">
         <id property="comId" column="com_id"></id>

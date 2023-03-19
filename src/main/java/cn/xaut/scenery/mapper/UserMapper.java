@@ -44,8 +44,8 @@ public interface UserMapper {
     //批量删除用户
     int deleteMoreByArray(@Param("userIds") List<Integer> userIds);
 
-
-
+    //个人推荐
+    List<User> getRecommendByUserId(@Param("userId") Integer userId);
 
 }
 

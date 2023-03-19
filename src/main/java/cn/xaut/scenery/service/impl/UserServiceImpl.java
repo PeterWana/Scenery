@@ -48,4 +48,9 @@ public class UserServiceImpl implements UserService {
         return userMapper.getAUserById(userId);
     }
 
+    @Override
+    public List<User> getRecommendByUserId(Integer userId) {
+        return userMapper.getRecommendByUserId(userId);
+    }
+
 }

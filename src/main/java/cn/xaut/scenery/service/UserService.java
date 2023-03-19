@@ -28,4 +28,6 @@ public interface UserService {
     //查询用户信息byId(可用于数据回显)
     User getUserById(Integer userId);
 
+    //个人推荐
+    List<User> getRecommendByUserId(Integer userId);
 }

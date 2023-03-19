@@ -6,11 +6,19 @@
 <mapper namespace="cn.xaut.scenery.mapper.SightMapper">
 
     <insert id="insertASight">
-        insert into sight values(null, #{sightApone}, #{sightAptwo}, #{sightApthr}, #{sightApfou}, now(), #{sightTourId}, #{sightSceneId})
+        insert into sight values(null, #{sightAp}, now(), #{sightTourId}, #{sightSceneId})
     </insert>
 
     <delete id="deleteASight">
-        delete from tour where sight_id=#{sightId}
+        delete from sight where sight_id=#{sightId}
     </delete>
+
+    <delete id="deleteASightBySightTourId">
+        delete from sight where sight_tour_id=#{SightTourId}
+    </delete>
+
+    <select id="getAllSightIdBySightTourId" resultType="Integer">
+        select sight_id from sight where sight_tour_id=#{SightTourId}
+    </select>
 
 </mapper>

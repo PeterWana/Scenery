@@ -3,6 +3,7 @@ package cn.xaut.scenery.pojo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author wyx
@@ -13,33 +14,27 @@ public class Sight {
 
     private Integer sightId;
 
-    private Integer sightApone;
-
-    private Integer sightAptwo;
-
-    private Integer sightApthr;
-
-    private Integer sightApfou;
+    private String sightAp;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date sightTime;
 
-    private Integer sightTour;
+    private Integer sightTourId;
 
     private Integer sightSceneId;
+
+    private List<Scene> scene;
 
     public Sight() {
     }
 
-    public Sight(Integer sightId, Integer sightApone, Integer sightAptwo, Integer sightApthr, Integer sightApfou, Date sightTime, Integer sightTour, Integer sightSceneId) {
+    public Sight(Integer sightId, String sightAp, Date sightTime, Integer sightTourId, Integer sightSceneId, List<Scene> scene) {
         this.sightId = sightId;
-        this.sightApone = sightApone;
-        this.sightAptwo = sightAptwo;
-        this.sightApthr = sightApthr;
-        this.sightApfou = sightApfou;
+        this.sightAp = sightAp;
         this.sightTime = sightTime;
-        this.sightTour = sightTour;
+        this.sightTourId = sightTourId;
         this.sightSceneId = sightSceneId;
+        this.scene = scene;
     }
 
     public Integer getSightId() {
@@ -50,36 +45,12 @@ public class Sight {
         this.sightId = sightId;
     }
 
-    public Integer getSightApone() {
-        return sightApone;
+    public String getSightAp() {
+        return sightAp;
     }
 
-    public void setSightApone(Integer sightApone) {
-        this.sightApone = sightApone;
-    }
-
-    public Integer getSightAptwo() {
-        return sightAptwo;
-    }
-
-    public void setSightAptwo(Integer sightAptwo) {
-        this.sightAptwo = sightAptwo;
-    }
-
-    public Integer getSightApthr() {
-        return sightApthr;
-    }
-
-    public void setSightApthr(Integer sightApthr) {
-        this.sightApthr = sightApthr;
-    }
-
-    public Integer getSightApfou() {
-        return sightApfou;
-    }
-
-    public void setSightApfou(Integer sightApfou) {
-        this.sightApfou = sightApfou;
+    public void setSightAp(String sightAp) {
+        this.sightAp = sightAp;
     }
 
     public Date getSightTime() {
@@ -90,12 +61,12 @@ public class Sight {
         this.sightTime = sightTime;
     }
 
-    public Integer getSightTour() {
-        return sightTour;
+    public Integer getSightTourId() {
+        return sightTourId;
     }
 
-    public void setSightTour(Integer sightTour) {
-        this.sightTour = sightTour;
+    public void setSightTourId(Integer sightTourId) {
+        this.sightTourId = sightTourId;
     }
 
     public Integer getSightSceneId() {
@@ -110,13 +81,18 @@ public class Sight {
     public String toString() {
         return "Sight{" +
                 "sightId=" + sightId +
-                ", sightApone=" + sightApone +
-                ", sightAptwo=" + sightAptwo +
-                ", sightApthr=" + sightApthr +
-                ", sightApfou=" + sightApfou +
+                ", sightAp=" + sightAp +
                 ", sightTime=" + sightTime +
-                ", sightTour=" + sightTour +
+                ", sightTourId=" + sightTourId +
                 ", sightSceneId=" + sightSceneId +
                 '}';
+    }
+
+    public List<Scene> getScene() {
+        return scene;
+    }
+
+    public void setScene(List<Scene> scene) {
+        this.scene = scene;
     }
 }

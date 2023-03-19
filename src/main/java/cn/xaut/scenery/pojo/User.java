@@ -23,12 +23,12 @@ public class User {
 
     private String userImg;
 
-    private List<?> tours;
+    private List<Tour> tour;
 
     public User() {
     }
 
-    public User(Integer userId, String userName, String userPassword, Integer userSex, Integer userAge, String userNum, String userImg) {
+    public User(Integer userId, String userName, String userPassword, Integer userSex, Integer userAge, String userNum, String userImg, List<Tour> tours) {
         this.userId = userId;
         this.userName = userName;
         this.userPassword = userPassword;
@@ -36,6 +36,7 @@ public class User {
         this.userAge = userAge;
         this.userNum = userNum;
         this.userImg = userImg;
+        this.tour = tour;
     }
 
     public Integer getUserId() {
@@ -82,6 +83,14 @@ public class User {
         return userNum;
     }
 
+    public List<Tour> getTours() {
+        return tour;
+    }
+
+    public void setTours(List<Tour> tours) {
+        this.tour = tour;
+    }
+
     public void setUserNum(String userNum) {
         this.userNum = userNum;
     }
@@ -104,7 +113,7 @@ public class User {
                 ", userAge=" + userAge +
                 ", userNum='" + userNum + '\'' +
                 ", userImg='" + userImg + '\'' +
-                ", tours=" + tours +
+                ", tour=" + tour +
                 '}';
     }
 }

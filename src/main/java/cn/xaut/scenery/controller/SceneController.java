@@ -2,7 +2,6 @@ package cn.xaut.scenery.controller;
 
 import cn.xaut.scenery.common.Constants;
 import cn.xaut.scenery.common.ReturnObject;
-import cn.xaut.scenery.pojo.News;
 import cn.xaut.scenery.pojo.Scene;
 import cn.xaut.scenery.service.SceneService;
 import com.github.pagehelper.PageInfo;

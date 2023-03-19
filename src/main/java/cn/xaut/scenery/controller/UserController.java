@@ -137,11 +137,18 @@ public class UserController {
         return returnObject;
     }
 
-    //测试渲染主页
-    @RequestMapping(value = "/")
-    public String index(){
-        return "index";
+    //个人推荐
+    @GetMapping("/recommend/{userId}")
+    @ResponseBody
+    public List<User> getRecommendByUserId(@PathVariable("userId") Integer userId){
+        return userService.getRecommendByUserId(userId);
     }
+
+//    //测试渲染主页
+//    @RequestMapping(value = "/")
+//    public String index(){
+//        return "index";
+//    }
 
 }
 

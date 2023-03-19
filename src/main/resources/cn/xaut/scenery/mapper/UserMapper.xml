@@ -55,4 +55,31 @@
         select * from user where user_name like concat('%',#{mohu},'%')
     </select>
 
+    <resultMap id="getRecommendMap" type="User">
+        <id property="userId" column="user_id"></id>
+        <result property="userName" column="user_name"></result>
+        <collection property="tour" ofType="Tour" javaType="java.util.List">
+            <id property="tourId" column="tour_id"></id>
+            <collection property="sight" ofType="Sight" javaType="java.util.List">
+                <id property="sightId" column="sight_id"></id>
+                    <collection property="scene" ofType="Scene" javaType="java.util.List">
+                        <id property="sceneId" column="scene_id"></id>
+                        <result property="sceneName" column="scene_name"></result>
+                        <result property="sceneType" column="scene_type"></result>
+                    </collection>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="getRecommendByUserId" resultMap="getRecommendMap">
+        select user.user_id, user.user_name,
+               tour.tour_id,
+               sight.sight_id,
+               scene.scene_id, scene.scene_name, scene.scene_type
+        from user left join tour on user.user_id=tour.tour_user_id
+                  left join sight on tour.tour_id=sight.sight_tour_id
+                  left join scene on sight.sight_scene_id=scene.scene_id
+        where user.user_id=#{userId}
+    </select>
+
 </mapper>

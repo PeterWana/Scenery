@@ -3,6 +3,7 @@ package cn.xaut.scenery.pojo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author wyx
@@ -18,13 +19,16 @@ public class Tour {
 
     private Integer tourUserId;
 
+    private List<Sight> sight;
+
     public Tour() {
     }
 
-    public Tour(Integer tourId, Date tourTime, Integer tourUserId) {
+    public Tour(Integer tourId, Date tourTime, Integer tourUserId, List<Sight> sight) {
         this.tourId = tourId;
         this.tourTime = tourTime;
         this.tourUserId = tourUserId;
+        this.sight = sight;
     }
 
     public Integer getTourId() {
@@ -51,12 +55,21 @@ public class Tour {
         this.tourUserId = tourUserId;
     }
 
+    public List<Sight> getSight() {
+        return sight;
+    }
+
+    public void setSight(List<Sight> sight) {
+        this.sight = sight;
+    }
+
     @Override
     public String toString() {
         return "Tour{" +
                 "tourId=" + tourId +
                 ", tourTime=" + tourTime +
                 ", tourUserId=" + tourUserId +
+                ", sight=" + sight +
                 '}';
     }
 }

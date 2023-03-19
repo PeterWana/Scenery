@@ -13,4 +13,21 @@
         delete from tour where tour_id=#{tourId}
     </delete>
 
+    <resultMap id="getTourAndSightMap" type="Tour">
+        <id property="tourId" column="tour_id"></id>
+        <result property="tourTime" column="tour_time"></result>
+        <result property="tourUserId" column="tour_user_id"></result>
+        <collection property="sight" ofType="Sight">
+            <id property="sightId" column="sight_id"></id>
+            <result property="sightAp" column="sight_ap"></result>
+            <result property="sightTime" column="sight_time"></result>
+            <result property="sightSceneId" column="sight_scene_id"></result>
+            <result property="sightTourId" column="sight_tour_id"></result>
+        </collection>
+    </resultMap>
+
+    <select id="getTourAndSightByTourId" resultMap="getTourAndSightMap">
+        select t.*, s.* from tour t left join sight s on t.tour_id=s.sight_tour_id where t.tour_id=#{tourId}
+    </select>
+
 </mapper>

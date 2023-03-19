@@ -6,7 +6,7 @@
 <mapper namespace="cn.xaut.scenery.mapper.SceneMapper">
 
     <insert id="insertAScene">
-        insert into scene values (null, #{sceneName}, #{sceneType}, #{sceneCoordinate}, null)
+        insert into scene values (null, #{sceneName}, #{sceneType}, #{sceneText}, null, null)
     </insert>
 
     <delete id="deleteASceneById">
