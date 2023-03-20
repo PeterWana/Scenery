@@ -15,6 +15,8 @@ public class News {
 
     private Integer newId;
 
+    private String newTitle;
+
     private String newText;
 
     private Integer newLikes;
@@ -25,8 +27,9 @@ public class News {
     public News() {
     }
 
-    public News(Integer newId, String newText, Integer newLikes, Date newDate) {
+    public News(Integer newId, String newTitle, String newText, Integer newLikes, Date newDate) {
         this.newId = newId;
+        this.newTitle = newTitle;
         this.newText = newText;
         this.newLikes = newLikes;
         this.newDate = newDate;
@@ -64,13 +67,23 @@ public class News {
         this.newDate = newDate;
     }
 
+    public String getNewTitle() {
+        return newTitle;
+    }
+
+    public void setNewTitle(String newTitle) {
+        this.newTitle = newTitle;
+    }
+
     @Override
     public String toString() {
-        return "New{" +
+        return "News{" +
                 "newId=" + newId +
+                ", newTitle='" + newTitle + '\'' +
                 ", newText='" + newText + '\'' +
                 ", newLikes=" + newLikes +
                 ", newDate=" + newDate +
                 '}';
     }
+
 }

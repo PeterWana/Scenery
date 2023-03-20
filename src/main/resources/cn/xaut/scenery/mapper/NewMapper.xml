@@ -14,7 +14,7 @@
      </select>
 
     <insert id="insertANew">
-        insert into new values (null, #{newText}, 0, now())
+        insert into new values (null, #{newTitle}, #{newText}, 0, now())
     </insert>
 
     <delete id="deleteANew">
