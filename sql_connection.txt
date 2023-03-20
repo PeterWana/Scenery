@@ -22,7 +22,7 @@
 新闻 new
 新闻id 新闻内容 点赞数 日期
 
-团 group
+团 groupr
 团id 用户名集群 团推荐 
 
 
