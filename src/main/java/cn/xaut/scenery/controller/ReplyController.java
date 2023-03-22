@@ -31,14 +31,14 @@ public class ReplyController {
     @GetMapping("/delete/{replyId}")
     public ReturnObject deleteAReplyById(@PathVariable("replyId") Integer replyId){
         ReturnObject returnObject = new ReturnObject();
-//        try {
+        try {
             replyService.deleteAReplyById(replyId);
             returnObject.setCode(Constants.RETURN_OBJECT_CODE_SUCCESS);
             returnObject.setMessage("删除成功");
-//        }catch (Exception e){
-//            returnObject.setCode(Constants.RETURN_OBJECT_CODE_FAIL);
-//            returnObject.setMessage("删除失败");
-//        }
+        }catch (Exception e){
+            returnObject.setCode(Constants.RETURN_OBJECT_CODE_FAIL);
+            returnObject.setMessage("删除失败");
+        }
         return returnObject;
     }
     //添加一条回复
@@ -59,14 +59,14 @@ public class ReplyController {
     @PostMapping("/update/{replyId}")
     public ReturnObject updateAReplyById(@PathVariable("replyId") Integer replyId, @RequestParam("replyText") String replyText){
         ReturnObject returnObject = new ReturnObject();
-//        try {
+        try {
             replyService.updateAReplyById(replyId, replyText);
             returnObject.setCode(Constants.RETURN_OBJECT_CODE_SUCCESS);
             returnObject.setMessage("更新成功");
-//        }catch (Exception e){
-//            returnObject.setCode(Constants.RETURN_OBJECT_CODE_FAIL);
-//            returnObject.setMessage("更新失败");
-//        }
+        }catch (Exception e){
+            returnObject.setCode(Constants.RETURN_OBJECT_CODE_FAIL);
+            returnObject.setMessage("更新失败");
+        }
         return returnObject;
     }
     //点赞
