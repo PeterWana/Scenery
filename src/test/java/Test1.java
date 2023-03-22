@@ -16,6 +16,12 @@ import java.util.Map;
 public class Test1 {
 
     public static void main(String[] args) {
+        String sceneRoute = "001-002-003";
+        String a[] = sceneRoute.split("-");
+
+        for(int i=0; i< a.length; i++){
+            System.out.println(Integer.parseInt(a[i]));
+        }
 
     }
 

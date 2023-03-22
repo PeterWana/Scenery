@@ -24,15 +24,18 @@ public class News {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date newDate;
 
+    private String newImg;
+
     public News() {
     }
 
-    public News(Integer newId, String newTitle, String newText, Integer newLikes, Date newDate) {
+    public News(Integer newId, String newTitle, String newText, Integer newLikes, Date newDate, String newImg) {
         this.newId = newId;
         this.newTitle = newTitle;
         this.newText = newText;
         this.newLikes = newLikes;
         this.newDate = newDate;
+        this.newImg = newImg;
     }
 
     public Integer getNewId() {
@@ -75,6 +78,14 @@ public class News {
         this.newTitle = newTitle;
     }
 
+    public String getNewImg() {
+        return newImg;
+    }
+
+    public void setNewImg(String newImg) {
+        this.newImg = newImg;
+    }
+
     @Override
     public String toString() {
         return "News{" +
@@ -83,7 +94,7 @@ public class News {
                 ", newText='" + newText + '\'' +
                 ", newLikes=" + newLikes +
                 ", newDate=" + newDate +
+                ", newImg='" + newImg + '\'' +
                 '}';
     }
-
 }

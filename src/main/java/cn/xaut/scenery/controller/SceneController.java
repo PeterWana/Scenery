@@ -8,6 +8,9 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Author wyx
  * @Date 2023/3/17 13:26
@@ -58,5 +61,16 @@ public class SceneController {
             returnObject.setMessage("添加失败");
         }
         return returnObject;
+    }
+    //根据001-002-003, Id形式得到景点
+    @GetMapping(value = "route/{sceneRoute}")
+    public Map<Integer, Object> getSceneById(@PathVariable("sceneRoute") String sceneRoute){
+        String sceneRoutePro[] = sceneRoute.split("-");
+        Map<Integer, Object> map = new HashMap<>();
+        for(int i=0; i<sceneRoutePro.length; i++){
+//            System.out.println(sceneRoutePro[i]);
+            map.put(Integer.parseInt(sceneRoutePro[i]), sceneService.getASceneById(Integer.parseInt(sceneRoutePro[i])));
+        }
+        return map;
     }
 }

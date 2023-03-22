@@ -24,14 +24,14 @@ public class SightController {
     @PostMapping("/insert")
     public ReturnObject insertASight(@RequestBody Sight sight){
         ReturnObject returnObject = new ReturnObject();
-//        try {
+        try {
             sightService.insertASight(sight);
             returnObject.setCode(Constants.RETURN_OBJECT_CODE_SUCCESS);
             returnObject.setMessage("添加成功");
-//        }catch (Exception e){
-//            returnObject.setCode(Constants.RETURN_OBJECT_CODE_FAIL);
-//            returnObject.setMessage("添加失败");
-//        }
+        }catch (Exception e){
+            returnObject.setCode(Constants.RETURN_OBJECT_CODE_FAIL);
+            returnObject.setMessage("添加失败");
+        }
         return returnObject;
     }
 
