@@ -45,4 +45,11 @@ public class SceneServiceImpl implements SceneService {
     public int deleteASceneById(Integer sceneId) {
         return sceneMapper.deleteASceneById(sceneId);
     }
+
+    @Override
+    public String getASceneCoordinateById(Integer sceneId) {
+        return sceneMapper.getASceneCoordinateById(sceneId);
+    }
+
+
 }

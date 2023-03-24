@@ -20,5 +20,9 @@
     <select id="getASceneById" resultType="Scene">
         select * from scene where scene_id = #{sceneId}
     </select>
+    
+    <select id="getASceneCoordinateById" resultType="String">
+        select scene.scene_coordinate from scene where scene_id = #{sceneId}
+    </select>
 
 </mapper>

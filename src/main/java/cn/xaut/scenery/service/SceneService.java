@@ -24,4 +24,7 @@ public interface SceneService {
 
     //删除一个景点
     int deleteASceneById(Integer sceneId);
+
+    //查找景点坐标ById
+    String getASceneCoordinateById(Integer sceneId);
 }

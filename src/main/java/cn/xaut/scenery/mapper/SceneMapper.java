@@ -23,4 +23,7 @@ public interface SceneMapper {
 
     //删除一个景点
     int deleteASceneById(@Param("sceneId") Integer sceneId);
+
+    //查找景点坐标ById
+    String getASceneCoordinateById(@Param("sceneId") Integer sceneId);
 }
