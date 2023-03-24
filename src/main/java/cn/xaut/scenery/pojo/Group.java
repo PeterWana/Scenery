@@ -15,19 +15,19 @@ public class Group {
 
     private String groupImg;
 
-    private String groupUser;
+    private String groupName;
 
     private String groupPassword;
 
     public Group() {
     }
 
-    public Group(Integer groupId, String groupUsers, String groupRecos, String groupImg, String groupUser, String groupPassword) {
+    public Group(Integer groupId, String groupUsers, String groupRecos, String groupImg, String groupName, String groupPassword) {
         this.groupId = groupId;
         this.groupUsers = groupUsers;
         this.groupRecos = groupRecos;
         this.groupImg = groupImg;
-        this.groupUser = groupUser;
+        this.groupName = groupName;
         this.groupPassword = groupPassword;
     }
 
@@ -63,12 +63,12 @@ public class Group {
         this.groupImg = groupImg;
     }
 
-    public String getGroupUser() {
-        return groupUser;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setGroupUser(String groupUser) {
-        this.groupUser = groupUser;
+    public void setGroupUser(String groupName) {
+        this.groupName = groupName;
     }
 
     public String getGroupPassword() {
@@ -86,7 +86,7 @@ public class Group {
                 ", groupUsers='" + groupUsers + '\'' +
                 ", groupRecos='" + groupRecos + '\'' +
                 ", groupImg='" + groupImg + '\'' +
-                ", groupUser='" + groupUser + '\'' +
+                ", groupName='" + groupName + '\'' +
                 ", groupPassword='" + groupPassword + '\'' +
                 '}';
     }

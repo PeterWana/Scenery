@@ -32,7 +32,7 @@ public class GroupController {
     }
 
     //登录/ 团与用户共有
-    @PostMapping("/login")
+    @PostMapping("/group/login")
     public Object loginUser(@RequestParam("groupName") String groupName, @RequestParam("groupPassword") String groupPassword, @RequestParam("isRemPwd") Integer isRemPwd, HttpSession session, HttpServletResponse response){  //形参名和请求的参数名需要相同
         Group group = groupService.login(groupName, groupPassword);   //查询用户
         ReturnObject returnObject = new ReturnObject();   //根据查询结果生成响应信息
@@ -44,11 +44,10 @@ public class GroupController {
             //登录成功
             returnObject.setCode(Constants.RETURN_OBJECT_CODE_SUCCESS);
             returnObject.setMessage("登录成功");
-            Map<String,Group> newMap = new HashMap<String, Group>();
+            Map<String, Group> newMap = new HashMap<String, Group>();
             newMap.put(Constants.SESSION_Object, group);
             returnObject.setInformation((HashMap<?, ?>) newMap);
             session.setAttribute(Constants.SESSION_USER, group);
-
 
             //如果需要记住密码，则添加cookie
             if(isRemPwd > 0){
@@ -71,7 +70,7 @@ public class GroupController {
         return returnObject;
     }
     //退出登录
-    @RequestMapping("/logout")
+    @RequestMapping("/group/logout")
     public ReturnObject logout(HttpServletResponse response, HttpSession session){
         ReturnObject returnObject = new ReturnObject();
         //清空cookie

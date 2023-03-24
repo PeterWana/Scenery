@@ -17,6 +17,6 @@ public interface GroupMapper {
     List<Group> getAllGroup();
 
     //团登录
-    Group getUserByUserNameAndPassword(@Param("groupName") String groupName, @Param("groupPassword") String groupPassword);
+    Group getGroupByGroupNameAndPassword(@Param("groupName") String groupName, @Param("groupPassword") String groupPassword);
 
 }

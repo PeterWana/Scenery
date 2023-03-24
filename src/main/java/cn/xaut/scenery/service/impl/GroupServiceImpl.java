@@ -30,7 +30,7 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     public Group login(String groupName, String groupPassword) {
-        return groupMapper.getUserByUserNameAndPassword(groupName, groupPassword);
+        return groupMapper.getGroupByGroupNameAndPassword(groupName, groupPassword);
     }
 
 }
