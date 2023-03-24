@@ -2,6 +2,8 @@ package cn.xaut.scenery.mapper;
 
 
 import cn.xaut.scenery.pojo.Group;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -13,5 +15,8 @@ public interface GroupMapper {
 
     //查询所有群组推荐
     List<Group> getAllGroup();
+
+    //团登录
+    Group getUserByUserNameAndPassword(@Param("groupName") String groupName, @Param("groupPassword") String groupPassword);
 
 }

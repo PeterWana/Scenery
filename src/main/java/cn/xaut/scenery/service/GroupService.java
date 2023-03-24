@@ -14,4 +14,7 @@ public interface GroupService {
 
     //查询所有群组推荐
     List<Group> getAllGroup();
+
+    //团登录
+    Group login(String groupName, String groupPassword);
 }

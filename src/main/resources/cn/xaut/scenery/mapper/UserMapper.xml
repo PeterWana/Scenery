@@ -66,6 +66,7 @@
                         <id property="sceneId" column="scene_id"></id>
                         <result property="sceneName" column="scene_name"></result>
                         <result property="sceneType" column="scene_type"></result>
+                        <result property="sceneImg" column="scene_img"></result>
                     </collection>
             </collection>
         </collection>
@@ -75,7 +76,7 @@
         select user.user_id, user.user_name,
                tour.tour_id,
                sight.sight_id,
-               scene.scene_id, scene.scene_name, scene.scene_type
+               scene.scene_id, scene.scene_name, scene.scene_type, scene.scene_img
         from user left join tour on user.user_id=tour.tour_user_id
                   left join sight on tour.tour_id=sight.sight_tour_id
                   left join scene on sight.sight_scene_id=scene.scene_id

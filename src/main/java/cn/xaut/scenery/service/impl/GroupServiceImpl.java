@@ -2,6 +2,7 @@ package cn.xaut.scenery.service.impl;
 
 import cn.xaut.scenery.mapper.GroupMapper;
 import cn.xaut.scenery.pojo.Group;
+import cn.xaut.scenery.pojo.User;
 import cn.xaut.scenery.service.GroupService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +27,10 @@ public class GroupServiceImpl implements GroupService {
     public List<Group> getAllGroup() {
         return groupMapper.getAllGroup();
     }
+
+    @Override
+    public Group login(String groupName, String groupPassword) {
+        return groupMapper.getUserByUserNameAndPassword(groupName, groupPassword);
+    }
+
 }

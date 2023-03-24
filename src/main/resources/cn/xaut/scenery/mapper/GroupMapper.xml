@@ -9,4 +9,8 @@
         select * from groupr
     </select>
 
+    <select id="getGroupByGroupNameAndPassword" resultType="Group">
+        select * from group where group_name=#{groupName} and group_password=#{groupPassword}
+    </select>
+
 </mapper>

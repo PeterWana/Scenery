@@ -23,6 +23,7 @@ public class Test1 {
             System.out.println(Integer.parseInt(a[i]));
         }
 
+
     }
 
 }
