@@ -31,8 +31,8 @@ public class GroupController {
         return groupService.getAllGroup();
     }
 
-    //登录/ 团与用户共有
-    @PostMapping("/group/login")
+    //登录
+    @GetMapping("/group/login")
     public Object loginUser(@RequestParam("groupName") String groupName, @RequestParam("groupPassword") String groupPassword, @RequestParam("isRemPwd") Integer isRemPwd, HttpSession session, HttpServletResponse response){  //形参名和请求的参数名需要相同
         Group group = groupService.login(groupName, groupPassword);   //查询用户
         ReturnObject returnObject = new ReturnObject();   //根据查询结果生成响应信息

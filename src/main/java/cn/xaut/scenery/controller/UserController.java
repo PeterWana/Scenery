@@ -52,7 +52,7 @@ public class UserController {
         return returnObject;
     }
     //登录/ 团与用户共有
-    @PostMapping("/login")
+    @GetMapping("/login")
     @ResponseBody
     public Object loginUser(@RequestParam("userName") String userName, @RequestParam("userPassword") String userPassword, @RequestParam("isRemPwd") Integer isRemPwd, HttpSession session, HttpServletResponse response){  //形参名和请求的参数名需要相同
         User user = userService.login(userName, userPassword);   //查询用户
